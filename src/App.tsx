@@ -21,6 +21,7 @@ import ClinicalDocumentationAIPage from '@/pages/ClinicalDocumentationAIPage';
 import ClinicalWorkflowSoftwarePage from '@/pages/ClinicalWorkflowSoftwarePage';
 import AIMedicalCodingPage from '@/pages/AIMedicalCodingPage';
 import AIClinicalDecisionSupportPage from '@/pages/AIClinicalDecisionSupportPage';
+import BestAIMedicalScribesPage from '@/pages/BestAIMedicalScribesPage';
 import ScrollToTop from '@/components/ScrollToTop';
 
 // Create a Helmet context to be used by the HelmetProvider
@@ -53,6 +54,8 @@ const App: FC = () => {
             <Route path="/ai-clinical-decision-support" element={<AIClinicalDecisionSupportPage />} />
             <Route path="/clinical-decision-support-ai" element={<AIClinicalDecisionSupportPage />} />
             <Route path="/ai-medical-coding" element={<AIMedicalCodingPage />} />
+            <Route path="/resources/best-ai-medical-scribes" element={<BestAIMedicalScribesPage />} />
+            <Route path="/best-ai-medical-scribes" element={<Navigate to="/resources/best-ai-medical-scribes" replace />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/contact" element={<Contact />} />

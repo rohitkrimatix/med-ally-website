@@ -26,6 +26,9 @@ const PAGE_ROUTES = {
   'src/pages/ClinicalWorkflowSoftwarePage.tsx': '/clinical-workflow-software',
   'src/pages/ClinicalDocumentationAIPage.tsx': '/clinical-documentation-ai',
   'src/pages/AIMedicalScribePage.tsx': '/ai-medical-scribe',
+  'src/pages/BestAIMedicalScribesPage.tsx': '/resources/best-ai-medical-scribes',
+  'src/pages/AIClinicalDecisionSupportPage.tsx': '/ai-clinical-decision-support',
+  'src/pages/AIMedicalCodingPage.tsx': '/ai-medical-coding',
   'src/pages/PrivacyPolicy.tsx': '/privacy-policy',
   'src/pages/TermsOfService.tsx': '/terms-of-service',
   'src/pages/Contact.tsx': '/contact'

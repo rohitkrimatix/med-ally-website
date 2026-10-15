@@ -20,6 +20,7 @@ const Footer: FC = () => {
     { name: 'AI Clinical Documentation', path: '/clinical-documentation-ai', isExternal: false },
     { name: 'AI Medical Coding', path: '/ai-medical-coding', isExternal: false },
     { name: 'AI Medical Scribe', path: '/ai-medical-scribe', isExternal: false },
+    { name: 'Best AI Medical Scribes', path: '/resources/best-ai-medical-scribes', isExternal: false },
     { name: 'Benefits', path: '/benefits', isExternal: false },
     { name: 'ROI Calculator', path: '/roi-calculator', isExternal: false },
     { name: 'FAQ', path: '/faq', isExternal: false },

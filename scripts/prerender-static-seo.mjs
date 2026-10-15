@@ -17,6 +17,7 @@ const commonLinks = [
   ['ROI Calculator', '/roi-calculator'],
   ['FAQ', '/faq'],
   ['Pricing', '/pricing'],
+  ['Best AI Medical Scribes', '/resources/best-ai-medical-scribes'],
   ['About', '/about-us'],
   ['Contact', '/contact'],
 ];
@@ -136,6 +137,37 @@ const clinicalDocFaqs = [
   {
     q: 'Does MedAlly replace physician judgment?',
     a: 'No. MedAlly prepares information for review. Physicians remain responsible for validating clinical documentation, coding context, and clinical decisions before approval or use.',
+  },
+];
+
+const bestScribesFaqs = [
+  {
+    q: 'What is the best AI medical scribe?',
+    a: 'There is no universal best option. The right choice depends on practice size, specialty, note requirements, EHR workflow, pricing, and whether you need capabilities beyond documentation.',
+  },
+  {
+    q: 'What should I look for in an AI medical scribe?',
+    a: "Compare note quality and structure, clinician review controls, customization, specialty fit, EHR workflow, pricing, coding or other post-note capabilities, and the product's stated limitations.",
+  },
+  {
+    q: 'Are free AI medical scribes available?',
+    a: "Yes. Some vendors offer free plans or trials, but the limits vary. MedAlly's Forever Free plan includes 10 clinical encounters per month. Other vendors should be checked directly for their current free-plan or trial terms.",
+  },
+  {
+    q: 'Is an ambient AI scribe the same as an AI medical scribe?',
+    a: 'The terms overlap heavily in the market. "Ambient" usually emphasizes capturing the natural patient-clinician conversation in the background of the encounter, while "AI medical scribe" is the broader product category used for software that helps generate clinical documentation.',
+  },
+  {
+    q: 'Should physicians review AI-generated notes?',
+    a: 'Yes. AI-generated clinical documentation should be reviewed for accuracy, completeness, and appropriateness before it becomes part of the clinical record.',
+  },
+  {
+    q: 'Do all AI medical scribes integrate with EHRs the same way?',
+    a: 'No. Integration depth varies substantially. Buyers should confirm whether a product copies text, pushes notes, works inside the EHR, supports structured fields, stages orders, or provides another workflow.',
+  },
+  {
+    q: 'Can an AI medical scribe help with coding?',
+    a: 'Some platforms include coding support, but the scope differs by vendor and plan. Coding output should be reviewed and validated before use.',
   },
 ];
 
@@ -507,6 +539,59 @@ const pages = [
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: scribeFaqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: { '@type': 'Answer', text: faq.a },
+      })),
+    },
+  },
+  {
+    path: '/resources/best-ai-medical-scribes',
+    title: 'Best AI Medical Scribes for Physicians | MedAlly',
+    description:
+      'Compare leading AI medical scribes for physicians by documentation workflow, clinical support, coding, integrations, pricing, and practice fit.',
+    h1: 'Best AI Medical Scribes for Physicians — 8 Options to Compare in 2026',
+    image: '/images/medally/clinical-hero.webp',
+    answer:
+      'Compare eight leading AI medical scribe solutions for physicians: MedAlly, Abridge, Ambience Healthcare, DeepScribe, Freed, Heidi, Nabla, and Suki. Evaluated across documentation workflows, clinician review controls, beyond-the-note capabilities, verified public pricing, and practice fit.',
+    bullets: [
+      'Side-by-side comparison of 8 leading AI medical scribes',
+      'Research-validated public pricing and trial terms',
+      'Evaluation framework across documentation, coding, and EHR handoff',
+      'Tailored shortlists for independent practices and specialty physicians',
+    ],
+    sections: [
+      {
+        heading: 'How This Comparison Was Researched',
+        content:
+          'This is a comparison of vendor-published information, not an independent clinical-performance study. Information was validated against official vendor product and pricing pages in October 2026.',
+      },
+      {
+        heading: 'Quick Comparison of AI Medical Scribes',
+        content:
+          'MedAlly (Forever Free: $0 for 10 encounters/mo, Professional: $49/mo, Ultimate: $99/mo), Abridge (Enterprise, Contact vendor), Ambience Healthcare (Enterprise, Contact vendor), DeepScribe (Specialty/Oncology, Contact vendor), Freed (Starter: $39/mo, Core: $79/mo, Premier: $119/mo), Heidi (Free plan available, paid pricing unconfirmed), Nabla (Try it free, pricing unconfirmed), Suki (Ambient Intelligence, Contact vendor).',
+      },
+      {
+        heading: 'Which AI Medical Scribe Is Best for a Small Practice?',
+        content:
+          'Small practices should prioritize monthly cost per clinician, free entry plans or trials, fast adoption without large IT implementation, note customization, and post-note coding support. MedAlly, Freed, and Heidi publish accessible entry paths.',
+      },
+      {
+        heading: 'Which AI Medical Scribe Is Best for Specialist Physicians?',
+        content:
+          'Specialists should look for specialty template adaptation, longitudinal context, pre-encounter information, and deep ICD-10/CPT coding support. DeepScribe, Abridge, Suki, Ambience, Nabla, Heidi, Freed, and MedAlly support diverse specialty workflows.',
+      },
+      {
+        heading: 'Comparison Limitations',
+        content:
+          'This guide compares what vendors publicly document and does not measure note accuracy head-to-head. Confirm exact plan capabilities, EHR compatibility, encounter caps, and pricing terms directly with each vendor.',
+      },
+    ],
+    faqs: bestScribesFaqs,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: bestScribesFaqs.map((faq) => ({
         '@type': 'Question',
         name: faq.q,
         acceptedAnswer: { '@type': 'Answer', text: faq.a },
