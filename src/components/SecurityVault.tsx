@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { type FC, type CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Lock, EyeOff, UserCheck, BadgeAlert, Server, Cpu, FileCheck } from 'lucide-react';
 import { MotionReveal } from '@/components/MotionReveal';
@@ -90,9 +90,11 @@ export const SecurityVault: FC = () => {
               <div className="relative h-full flex flex-col justify-between p-8 lg:p-10 rounded-[2.5rem] border border-border/60 bg-card/30 backdrop-blur-md overflow-hidden transition-all duration-500 hover:border-foreground/20 hover:bg-card shadow-xl shadow-black/[0.01] hover:shadow-black/[0.03]">
                 {/* Hover Glow Layer */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-stops))] from-transparent to-transparent"
-                     style={{
-                       '--tw-gradient-from': pillar.color === 'teal' ? 'rgba(54,183,181,0.05)' : pillar.color === 'purple' ? 'rgba(168,85,247,0.05)' : 'rgba(239,68,68,0.05)'
-                     } as any} />
+                     style={
+                       {
+                         '--tw-gradient-from': pillar.color === 'teal' ? 'rgba(54,183,181,0.05)' : pillar.color === 'purple' ? 'rgba(168,85,247,0.05)' : 'rgba(239,68,68,0.05)'
+                       } as CSSProperties
+                     } />
 
                 <div>
                   {/* Floating Tech Icon Wrapper */}

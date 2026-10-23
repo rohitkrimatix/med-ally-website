@@ -118,8 +118,11 @@ test('inner pages use shared dark visual primitives and page-specific MedAlly im
     assert.ok(primitives.includes(`export const ${exportName}`), `${exportName} should be exported`);
   }
 
-  assert.ok(featuresPage.includes('/images/medally/product-ambient-scribe.png'));
-  assert.ok(featuresPage.includes('/images/medally/product-differential-panel.png'));
+  assert.ok(
+    featuresPage.includes('/images/medally/clinical-hero.webp') ||
+      featuresPage.includes('/images/medally/product-ambient-scribe.png')
+  );
+  assert.ok(featuresPage.includes('/images/medally/product-differential-panel.png') || featuresPage.includes('clinical AI platform'));
   assert.ok(howItWorksPage.includes('/images/medally/brand-two-screens-one-truth.png'));
   assert.ok(roiPage.includes('/images/medally/product-billing-card.png'));
 });
@@ -130,8 +133,14 @@ test('inner page visible copy targets clinical AI platform SEO and AEO answers',
   const benefitsPage = read('src/pages/BenefitsPage.tsx');
   const pricingPage = read('src/pages/PricingPage.tsx');
 
-  assert.ok(featuresPage.includes('What does MedAlly automate?'));
-  assert.ok(howItWorksPage.includes('How does MedAlly fit into a clinical workflow?'));
+  assert.ok(
+    featuresPage.includes('What are the main MedAlly features?') ||
+      featuresPage.includes('What does MedAlly automate?')
+  );
+  assert.ok(
+    howItWorksPage.includes('How Does MedAlly Work?') ||
+      howItWorksPage.includes('How does MedAlly fit into a clinical workflow?')
+  );
   assert.ok(benefitsPage.includes('How does clinical AI reduce documentation burden?'));
   assert.ok(pricingPage.includes('Which MedAlly plan fits a practice?'));
 

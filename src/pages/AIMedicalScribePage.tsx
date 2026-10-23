@@ -496,15 +496,15 @@ const AIMedicalScribePage: FC = () => {
 
                 {/* SOAP Section Selector Tabs */}
                 <div className="flex border-b border-border/60 bg-muted/10 overflow-x-auto">
-                  {[
+                  {([
                     { id: 'S', label: 'Subjective (S)', title: 'History of Present Illness' },
                     { id: 'O', label: 'Objective (O)', title: 'Vitals & Physical Exam' },
                     { id: 'A', label: 'Assessment (A)', title: 'Clinical Impression' },
                     { id: 'P', label: 'Plan (P)', title: 'Treatment & Next Steps' },
-                  ].map((tab) => (
+                  ] as const).map((tab) => (
                     <button
                       key={tab.id}
-                      onClick={() => setActiveSoapTab(tab.id as any)}
+                      onClick={() => setActiveSoapTab(tab.id)}
                       className={`flex-1 min-w-[140px] px-5 py-3.5 text-left text-xs transition-all border-b-2 ${
                         activeSoapTab === tab.id
                           ? 'border-teal-500 bg-background text-foreground font-bold'

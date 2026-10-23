@@ -16,7 +16,6 @@ import {
   UserCheck,
   Workflow,
   Scale,
-  CalendarCheck,
   Activity,
   Info
 } from 'lucide-react';

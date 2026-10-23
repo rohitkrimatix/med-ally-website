@@ -11,6 +11,8 @@ const commonLinks = [
   ['AI Clinical Documentation', '/clinical-documentation-ai'],
   ['AI Medical Scribe', '/ai-medical-scribe'],
   ['Clinical Workflow Software', '/clinical-workflow-software'],
+  ['AI Clinical Decision Support', '/ai-clinical-decision-support'],
+  ['AI Medical Coding', '/ai-medical-coding'],
   ['Features', '/features'],
   ['How It Works', '/how-it-works'],
   ['Benefits', '/benefits'],
@@ -203,6 +205,92 @@ const clinicalWorkflowFaqs = [
   {
     q: 'Can MedAlly support an EHR-connected workflow?',
     a: 'MedAlly can support practice / EHR workflow handoff after physician review and approval. The exact integration and handoff method vary by deployment.',
+  },
+];
+
+const decisionSupportFaqs = [
+  {
+    q: 'What is AI clinical decision support?',
+    a: 'AI clinical decision support uses artificial intelligence to help organize, synthesize, or surface information that may be relevant to clinical review and decision-making. The exact functionality varies by product.',
+  },
+  {
+    q: 'Is AI clinical decision support the same as a clinical decision support system?',
+    a: 'AI clinical decision support is part of the broader CDS category. A clinical decision support system can use AI, rule-based logic, reference content, alerts, or a combination of approaches. "AI clinical decision support" describes the use of AI within that broader decision-support workflow.',
+  },
+  {
+    q: 'Does MedAlly provide clinical decision-support information?',
+    a: "Yes. MedAlly's Diagnostic Assessment workspace can organize risk factors, clinical indicators, clinical findings, risk assessment, differential considerations, diagnostic planning, evidence context, treatment planning, and related review information around the encounter.",
+  },
+  {
+    q: 'Does MedAlly make diagnoses for physicians?',
+    a: 'MedAlly can display an initial diagnosis and ranked differential considerations with ICD-10 codes, but those outputs are for clinician review. The physician remains responsible for the final diagnosis, clinical interpretation, and clinical decisions.',
+  },
+  {
+    q: 'Does MedAlly work with lab-related information?',
+    a: 'Yes. MedAlly brings lab-related information into the encounter review workflow so the physician can consider it alongside the other information connected to the visit.',
+  },
+  {
+    q: 'Does MedAlly provide treatment-planning support?',
+    a: 'Yes. MedAlly can present a step-by-step treatment implementation plan with timing, responsible-role labels, step details, success and failure metrics, and next-step context. Treatment decisions and clinical actions remain with the physician.',
+  },
+  {
+    q: 'Does MedAlly support follow-up?',
+    a: 'Yes. Follow-up information can appear in the SOAP Plan and treatment workflow, including monitoring, timing, next-step context, and patient-education information. The physician determines the appropriate follow-up.',
+  },
+  {
+    q: 'Is MedAlly an autonomous clinical decision-making system?',
+    a: 'No. MedAlly is designed around physician review. It prepares and organizes information, while clinical judgment and final clinical decisions remain with the physician.',
+  },
+  {
+    q: 'How does MedAlly connect decision support to clinical documentation?',
+    a: 'MedAlly keeps decision-support information connected to the encounter workflow that also produces SOAP-style clinical documentation, allowing the physician to review clinical context around the same visit.',
+  },
+  {
+    q: 'Can MedAlly support an EHR-connected workflow?',
+    a: 'Yes. After physician review and approval, MedAlly can support the next practice or EHR workflow step. The exact handoff method varies by deployment.',
+  },
+];
+
+const medicalCodingFaqs = [
+  {
+    q: 'What is AI medical coding?',
+    a: 'AI medical coding uses artificial intelligence to help identify, organize, or prepare coding information from clinical documentation and encounter context. The exact degree of automation varies by product.',
+  },
+  {
+    q: 'What is AI medical coding software?',
+    a: 'AI medical coding software is software that uses AI within a medical coding workflow. Products can differ significantly in what they analyze, what coding information they produce, how users review that information, and how approved work moves downstream.',
+  },
+  {
+    q: 'Is AI medical coding the same as automated medical coding?',
+    a: 'Not necessarily. AI medical coding is a broad category. Automated medical coding usually implies that one or more coding steps are automated. Practices should confirm exactly which steps are automated and where human review is required.',
+  },
+  {
+    q: 'Which coding systems does MedAlly support?',
+    a: 'MedAlly supports ICD-10, ICD-11, DRG Codes, CPT Codes, HCPCS Codes, and Modifier Codes as configurable coding preferences for documentation and billing. Coding information is prepared for physician review and validation before use.',
+  },
+  {
+    q: 'Does MedAlly automatically finalize medical codes?',
+    a: 'No. MedAlly does not automatically finalize medical codes. It prepares coding information for physician review and validation before use, and the physician controls what moves forward.',
+  },
+  {
+    q: 'Does MedAlly support billing-related work?',
+    a: 'Yes. MedAlly prepares billing-related information around the encounter in addition to ICD-10/CPT coding information. Physicians should review and validate billing-related information before use.',
+  },
+  {
+    q: 'How does MedAlly connect coding to documentation?',
+    a: 'MedAlly keeps ICD-10/CPT coding information connected to the same encounter workflow that produces SOAP-style clinical documentation, so the physician can review the coding information alongside the encounter context.',
+  },
+  {
+    q: 'Can MedAlly support an EHR-connected coding workflow?',
+    a: 'MedAlly can support practice / EHR workflow handoff after physician review and approval. The exact integration and handoff method vary by deployment.',
+  },
+  {
+    q: 'Does AI medical coding replace physician or coding review?',
+    a: 'AI can prepare or organize coding information, but the appropriate review responsibility depends on the workflow and organization. In MedAlly, coding information is prepared for review and validation before use.',
+  },
+  {
+    q: 'Is MedAlly free to try?',
+    a: 'Yes. Forever Free includes 10 clinical encounters per month.',
   },
 ];
 
@@ -599,6 +687,117 @@ const pages = [
     },
   },
   {
+    path: '/ai-clinical-decision-support',
+    title: 'AI Clinical Decision Support for Physicians | MedAlly',
+    description:
+      'See how MedAlly supports AI clinical decision support with differential-review, lab, treatment-planning, and follow-up information for physician review.',
+    h1: 'AI Clinical Decision Support for Physicians — Information for Review, Decisions by Clinicians',
+    image: '/images/medally/clinical-hero.webp',
+    answer:
+      'AI clinical decision support helps organize patient and encounter information so clinicians can review relevant context when making care decisions. MedAlly prepares decision-support and differential-review information, brings lab-related context into the encounter review workflow, and keeps treatment-planning and follow-up information connected to the same clinical context while clinicians remain in control.',
+    bullets: [
+      'Review-assisted CDS architecture',
+      'Ranked differential diagnosis review',
+      'Lab synthesis and follow-up context',
+      'Preserves complete physician clinical judgment',
+    ],
+    sections: [
+      {
+        heading: 'What Is AI Clinical Decision Support?',
+        content:
+          'Clinical decision support provides timely knowledge and person-specific information to inform patient care decisions. MedAlly focuses on a review-assisted CDS architecture where AI prepares reviewable information while clinical decisions remain strictly with clinicians.',
+      },
+      {
+        heading: 'Interactive Diagnostic Workspace',
+        content:
+          'Physicians explore ranked differential considerations with ICD-10 alignments, test diagnostic planning recommendations, synthesize abnormal lab alerts, and align treatment protocols before finalizing documentation.',
+      },
+      {
+        heading: 'Guiding Clinical Principle',
+        content:
+          'AI prepares. Clinicians review. Clinicians decide. MedAlly is designed to assist clinical workflows without usurping clinical judgment or physician accountability.',
+      },
+    ],
+    faqs: decisionSupportFaqs,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: decisionSupportFaqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: { '@type': 'Answer', text: faq.a },
+      })),
+    },
+  },
+  {
+    path: '/clinical-decision-support-ai',
+    title: 'AI Clinical Decision Support for Physicians | MedAlly',
+    description:
+      'See how MedAlly supports AI clinical decision support with differential-review, lab, treatment-planning, and follow-up information for physician review.',
+    h1: 'AI Clinical Decision Support for Physicians — Information for Review, Decisions by Clinicians',
+    image: '/images/medally/clinical-hero.webp',
+    canonical: 'https://www.medally.ai/ai-clinical-decision-support',
+    answer:
+      'AI clinical decision support helps organize patient and encounter information so clinicians can review relevant context when making care decisions. MedAlly prepares decision-support and differential-review information, brings lab-related context into the encounter review workflow, and keeps treatment-planning and follow-up information connected to the same clinical context while clinicians remain in control.',
+    bullets: [
+      'Review-assisted CDS architecture',
+      'Ranked differential diagnosis review',
+      'Lab synthesis and follow-up context',
+      'Preserves complete physician clinical judgment',
+    ],
+    sections: [
+      {
+        heading: 'What Is AI Clinical Decision Support?',
+        content:
+          'Clinical decision support provides timely knowledge and person-specific information to inform patient care decisions. MedAlly focuses on a review-assisted CDS architecture where AI prepares reviewable information while clinical decisions remain strictly with clinicians.',
+      },
+    ],
+    faqs: decisionSupportFaqs,
+  },
+  {
+    path: '/ai-medical-coding',
+    title: 'AI Medical Coding Software for Physicians | MedAlly',
+    description:
+      'See how MedAlly supports AI medical coding with configurable coding systems, encounter-linked coding information, physician review, and workflow handoff.',
+    h1: 'AI Medical Coding for Physicians — Review Coding in Clinical Context',
+    image: '/images/medally/clinical-hero.webp',
+    answer:
+      'AI medical coding is the use of artificial intelligence to help identify, organize, or prepare medical coding information from clinical documentation and encounter context. MedAlly prepares ICD-10 and CPT coding information around the encounter for review, keeping coding connected to the clinical note while the physician validates all outputs before use.',
+    bullets: [
+      'Physician-validated coding workflow',
+      'ICD-10, CPT & additional coding systems',
+      'SOAP encounter alignment',
+      'Review-first clinical workflow',
+    ],
+    sections: [
+      {
+        heading: 'What Is AI Medical Coding?',
+        content:
+          'AI medical coding helps turn clinical documentation into coding information that is easier to review in the context of the patient encounter. MedAlly connects ICD-10, CPT, and other configurable systems directly to the clinical note.',
+      },
+      {
+        heading: 'Interactive Coding Workspace',
+        content:
+          'Clinicians inspect recommended codes with confidence indicators, verify documentation evidence links, customize coding preferences, and validate coding context before EHR handoff.',
+      },
+      {
+        heading: 'Review-First Coding Architecture',
+        content:
+          'MedAlly does not automatically commit codes without clinician oversight. Every code suggestion remains subject to physician validation and institutional coding policies.',
+      },
+    ],
+    faqs: medicalCodingFaqs,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: medicalCodingFaqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: { '@type': 'Answer', text: faq.a },
+      })),
+    },
+  },
+  {
     path: '/features',
     title: 'MedAlly Features | Clinical AI Platform for Physicians',
     description:
@@ -827,7 +1026,7 @@ const absoluteUrl = (path) => `${siteUrl}${path}`;
 const canonicalFor = (path) => (path === '/' ? `${siteUrl}/` : `${siteUrl}${path.replace(/\/+$/, '')}`);
 
 function renderHead(page) {
-  const canonical = canonicalFor(page.path);
+  const canonical = page.canonical || canonicalFor(page.path);
   const image = page.image.startsWith('http') ? page.image : absoluteUrl(page.image);
   const schema = [
     ...commonSchema,

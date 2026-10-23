@@ -1130,19 +1130,19 @@ const ClinicalWorkflowSoftwarePage: FC = () => {
 
               {/* Workspace Navigation Tabs */}
               <div className="flex items-center border-b border-border bg-background px-4 overflow-x-auto">
-                {[
+                {([
                   { key: 'soap', label: '1. SOAP Documentation Draft', icon: FileText },
                   { key: 'labs', label: '2. Lab & Differential Context', icon: Activity },
                   { key: 'treatment', label: '3. Treatment & Follow-Up Plan', icon: CalendarCheck2 },
                   { key: 'coding', label: '4. ICD-10 / CPT & Billing Info', icon: Tag },
                   { key: 'handoff', label: '5. Downstream Handoff Status', icon: Share2 },
-                ].map((tab) => {
+                ] as const).map((tab) => {
                   const Icon = tab.icon;
                   const isActive = activeTab === tab.key;
                   return (
                     <button
                       key={tab.key}
-                      onClick={() => setActiveTab(tab.key as any)}
+                      onClick={() => setActiveTab(tab.key)}
                       className={`py-3.5 px-4 text-xs font-bold flex items-center gap-2 whitespace-nowrap border-b-2 transition-all ${
                         isActive
                           ? 'border-teal-500 text-teal-600 dark:text-teal-400 bg-teal-500/5'

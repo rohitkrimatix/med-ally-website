@@ -314,7 +314,7 @@ const AIClinicalDecisionSupportPage: FC = () => {
   const handlePrevTab = () => {
     const currentIndex = workspaceTabs.findIndex((t) => t.id === activeWorkspaceTab);
     const newIndex = currentIndex > 0 ? currentIndex - 1 : workspaceTabs.length - 1;
-    setActiveWorkspaceTab(workspaceTabs[newIndex].id as any);
+    setActiveWorkspaceTab(workspaceTabs[newIndex].id);
     if (tabsRef.current) {
       const activeEl = tabsRef.current.children[newIndex] as HTMLElement;
       if (activeEl) {
@@ -326,7 +326,7 @@ const AIClinicalDecisionSupportPage: FC = () => {
   const handleNextTab = () => {
     const currentIndex = workspaceTabs.findIndex((t) => t.id === activeWorkspaceTab);
     const newIndex = currentIndex < workspaceTabs.length - 1 ? currentIndex + 1 : 0;
-    setActiveWorkspaceTab(workspaceTabs[newIndex].id as any);
+    setActiveWorkspaceTab(workspaceTabs[newIndex].id);
     if (tabsRef.current) {
       const activeEl = tabsRef.current.children[newIndex] as HTMLElement;
       if (activeEl) {
@@ -609,7 +609,7 @@ const AIClinicalDecisionSupportPage: FC = () => {
                         <button
                           key={tab.id}
                           type="button"
-                          onClick={() => setActiveWorkspaceTab(tab.id as any)}
+                          onClick={() => setActiveWorkspaceTab(tab.id)}
                           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                             isActive
                               ? 'bg-teal-500 text-slate-950 shadow-md'

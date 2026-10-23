@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { FC, useState, useRef } from 'react';
+import { FC, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FileText,
@@ -333,15 +333,6 @@ const AIAgents: FC = () => {
     }
   };
 
-  const getActiveIconColor = (catId: string) => {
-    switch (catId) {
-      case 'doc': return 'text-teal-400';
-      case 'diag': return 'text-rose-500';
-      case 'treat': return 'text-[#fccc03]';
-      case 'ops': return 'text-purple-400';
-      default: return 'text-slate-400';
-    }
-  };
 
   const currentAccentColor = categories.find(c => c.id === activeCategory)?.color || '#36b7b5';
 

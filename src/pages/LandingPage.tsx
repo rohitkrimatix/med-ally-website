@@ -10,7 +10,6 @@ import {
   BrainCircuit,
   FileText,
   FileCheck2,
-  ChevronRight,
   ChevronDown,
   Layers,
   Activity,

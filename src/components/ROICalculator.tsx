@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { type FC, useState, useEffect, useCallback, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Clock, Users, DollarSign, TrendingUp,
@@ -18,14 +17,12 @@ import {
   ROI_CONSTANTS, calculateROI
 } from '@/lib/roi-calculator';
 
-// Neon Obsidian Color Palette
-const DARK_CHART_COLORS = ['#1e293b', '#36b7b5', '#6366f1', '#a855f7', '#e41e3a', '#fccc03'];
 
 const ROICalculator: FC = () => {
   const calculatorRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(calculatorRef, { once: false, amount: 0.1 });
   const [activeMetric, setActiveMetric] = useState<number | null>(null);
-  const [hoveredChart, setHoveredChart] = useState<string | null>(null);
+  const [, setHoveredChart] = useState<string | null>(null);
   const [isDark, setIsDark] = useState(true);
 
   // Centralized theme observer to feed SVG chart context

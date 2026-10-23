@@ -84,7 +84,7 @@ jobs:
 
   Deploy-PR:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && secrets.VERCEL_TOKEN != ''
     environment:
       name: PR Preview
       url: ${{ steps.deploy.outputs.url }}
