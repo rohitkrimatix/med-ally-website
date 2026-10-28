@@ -160,13 +160,30 @@ test('SEO component supports keywords robots image alt and structured data', () 
   assert.ok(seo.includes('max-image-preview:large'));
 });
 
-test('FAQ page includes visible FAQ schema and pricing includes software offers schema', () => {
+test('FAQ page includes visible FAQ schema aligned with visible questions and pricing includes software offers schema', () => {
   const faqPage = read('src/pages/FAQPage.tsx');
   const pricingPage = read('src/pages/PricingPage.tsx');
+  const prerender = read('scripts/prerender-static-seo.mjs');
 
+  // Verify FAQPage schema exists and dynamically maps visible faqCategories questions
   assert.ok(faqPage.includes('@type: \"FAQPage\"') || faqPage.includes("'@type': 'FAQPage'"));
-  assert.ok(faqPage.includes('How does MedAlly fit into clinical workflows?'));
-  assert.ok(faqPage.includes('Can MedAlly support clinical documentation and decision support?'));
+  assert.ok(faqPage.includes('faqCategories.flatMap') || faqPage.includes('category.faqs.map'));
+
+  // Verify core visible questions are defined in FAQPage and aligned with structured schema
+  const visibleQuestions = [
+    'What is MedAlly?',
+    'How does MedAlly work?',
+    'Is MedAlly only an AI medical scribe?',
+    'Does MedAlly include an AI medical scribe?',
+    'Can MedAlly support an EHR-connected workflow?',
+  ];
+  for (const q of visibleQuestions) {
+    assert.ok(faqPage.includes(q), `FAQPage should visibly include "${q}"`);
+  }
+
+  // Verify static prerender script includes FAQPage schema aligned with visible hub questions
+  assert.ok(prerender.includes('faqs: generalFaqHubQuestions'));
+  assert.ok(prerender.includes("path: '/faq'"));
 
   assert.ok(pricingPage.includes('@type: \"SoftwareApplication\"') || pricingPage.includes("'@type': 'SoftwareApplication'"));
   assert.ok(pricingPage.includes('offers'));

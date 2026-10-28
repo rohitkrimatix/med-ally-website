@@ -542,24 +542,16 @@ const structuredData = {
     {
       '@type': 'FAQPage',
       '@id': 'https://www.medally.ai/faq#faq',
-      mainEntity: [
-        {
+      mainEntity: faqCategories.flatMap((category) =>
+        category.faqs.map((faq) => ({
           '@type': 'Question',
-          name: 'How does MedAlly fit into clinical workflows?',
+          name: faq.q,
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'MedAlly captures encounter context, drafts structured documentation, surfaces decision-support context, and prepares coding signals for physician review before chart completion.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'Can MedAlly support clinical documentation and decision support?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. MedAlly prepares reviewable documentation and clinical decision support context while physicians remain responsible for reviewing and approving all outputs.'
-          }
-        }
-      ]
+            text: faq.a.join(' '),
+          },
+        }))
+      ),
     },
   ],
 };
