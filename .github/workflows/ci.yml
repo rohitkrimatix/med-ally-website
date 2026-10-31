@@ -36,3 +36,10 @@ jobs:
 
       - name: Build Production Bundle & Prerender SEO
         run: npm run build
+
+      - name: Upload Production Preview Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: med-ally-preview-dist
+          path: dist
+          retention-days: 14

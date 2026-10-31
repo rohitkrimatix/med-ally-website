@@ -160,32 +160,146 @@ test('SEO component supports keywords robots image alt and structured data', () 
   assert.ok(seo.includes('max-image-preview:large'));
 });
 
-test('FAQ page includes visible FAQ schema aligned with visible questions and pricing includes software offers schema', () => {
+function unescapeHtml(str) {
+  return str
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+}
+
+function normalizeWhitespace(str) {
+  return str.trim().replace(/\s+/g, ' ');
+}
+
+function validateFaqSchemaParity(schemaEntities, renderedQA) {
+  assert.equal(
+    schemaEntities.length,
+    renderedQA.length,
+    `Count mismatch: schema has ${schemaEntities.length} entries, rendered HTML has ${renderedQA.length} entries`
+  );
+
+  const schemaNames = schemaEntities.map((e) => normalizeWhitespace(e.name));
+  const uniqueSchemaNames = new Set(schemaNames);
+  assert.equal(
+    uniqueSchemaNames.size,
+    schemaNames.length,
+    `Duplicate questions found in schema: ${schemaNames.length - uniqueSchemaNames.size} duplicates`
+  );
+
+  const renderedNames = renderedQA.map((e) => normalizeWhitespace(e.q));
+  const uniqueRenderedNames = new Set(renderedNames);
+  assert.equal(
+    uniqueRenderedNames.size,
+    renderedNames.length,
+    `Duplicate questions found in rendered HTML: ${renderedNames.length - uniqueRenderedNames.size} duplicates`
+  );
+
+  for (const name of schemaNames) {
+    assert.ok(
+      uniqueRenderedNames.has(name),
+      `Missing rendered question for schema entry: "${name}"`
+    );
+  }
+  for (const name of renderedNames) {
+    assert.ok(
+      uniqueSchemaNames.has(name),
+      `Extra rendered question not found in schema: "${name}"`
+    );
+  }
+
+  for (let i = 0; i < schemaEntities.length; i++) {
+    const sName = normalizeWhitespace(schemaEntities[i].name);
+    const rName = normalizeWhitespace(renderedQA[i].q);
+    assert.equal(
+      sName,
+      rName,
+      `Question name mismatch at index ${i}:\nSchema:   "${sName}"\nRendered: "${rName}"`
+    );
+
+    const sAnswer = normalizeWhitespace(schemaEntities[i].acceptedAnswer?.text || '');
+    const rAnswer = normalizeWhitespace(renderedQA[i].a);
+    assert.equal(
+      sAnswer,
+      rAnswer,
+      `Answer text mismatch at index ${i} (${sName}):\nSchema:   "${sAnswer}"\nRendered: "${rAnswer}"`
+    );
+  }
+}
+
+test('FAQ output-level schema regression coverage verifies generated HTML Q&A parity and resists mutations', () => {
+  const faqHtml = read('dist/faq/index.html');
+  const scriptMatches = [...faqHtml.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)];
+  let faqSchema = null;
+  for (const match of scriptMatches) {
+    const data = JSON.parse(match[1]);
+    if (Array.isArray(data)) {
+      const found = data.find((item) => item['@type'] === 'FAQPage');
+      if (found) faqSchema = found;
+    } else if (data['@type'] === 'FAQPage') {
+      faqSchema = data;
+    }
+  }
+
+  assert.ok(faqSchema, 'dist/faq/index.html must contain FAQPage JSON-LD schema');
+  const schemaEntities = faqSchema.mainEntity;
+  assert.equal(schemaEntities.length, 35, 'Schema should contain 35 FAQ questions');
+
+  const dtMatches = [...faqHtml.matchAll(/<dt><strong>(.*?)<\/strong><\/dt>/g)].map((m) => unescapeHtml(m[1]));
+  const ddMatches = [...faqHtml.matchAll(/<dd>(.*?)<\/dd>/g)].map((m) => unescapeHtml(m[1]));
+
+  assert.equal(dtMatches.length, 35, 'Rendered HTML should contain 35 <dt> questions');
+  assert.equal(ddMatches.length, 35, 'Rendered HTML should contain 35 <dd> answers');
+  const renderedQA = dtMatches.map((q, i) => ({ q, a: ddMatches[i] }));
+
+  // Strict output-level validation
+  validateFaqSchemaParity(schemaEntities, renderedQA);
+
+  // Mutation regression validation: changing or removing an entry MUST fail the test
+  assert.throws(() => {
+    validateFaqSchemaParity(schemaEntities.slice(1), renderedQA);
+  }, /Count mismatch|Missing rendered question/);
+
+  assert.throws(() => {
+    const mutated = schemaEntities.map((e, idx) =>
+      idx === 0
+        ? { ...e, acceptedAnswer: { ...e.acceptedAnswer, text: 'Mutated invalid answer text' } }
+        : e
+    );
+    validateFaqSchemaParity(mutated, renderedQA);
+  }, /Answer text mismatch/);
+
+  assert.throws(() => {
+    validateFaqSchemaParity([...schemaEntities, schemaEntities[0]], [...renderedQA, renderedQA[0]]);
+  }, /Duplicate questions found/);
+});
+
+test('FAQ content definition is consolidated and JavaScript rendered FAQ with expanded accordions matches schema', () => {
+  const faqDataRaw = JSON.parse(read('src/data/faqData.json'));
   const faqPage = read('src/pages/FAQPage.tsx');
   const pricingPage = read('src/pages/PricingPage.tsx');
   const prerender = read('scripts/prerender-static-seo.mjs');
 
-  // Verify FAQPage schema exists and dynamically maps visible faqCategories questions
-  assert.ok(faqPage.includes('@type: \"FAQPage\"') || faqPage.includes("'@type': 'FAQPage'"));
-  assert.ok(faqPage.includes('faqCategories.flatMap') || faqPage.includes('category.faqs.map'));
+  assert.ok(faqPage.includes("from '@/data/faqData.json'"));
+  assert.ok(faqPage.includes('getFaqAnswerText'));
+  assert.ok(prerender.includes('src/data/faqData.json'));
 
-  // Verify core visible questions are defined in FAQPage and aligned with structured schema
-  const visibleQuestions = [
-    'What is MedAlly?',
-    'How does MedAlly work?',
-    'Is MedAlly only an AI medical scribe?',
-    'Does MedAlly include an AI medical scribe?',
-    'Can MedAlly support an EHR-connected workflow?',
-  ];
-  for (const q of visibleQuestions) {
-    assert.ok(faqPage.includes(q), `FAQPage should visibly include "${q}"`);
+  const allFaqs = faqDataRaw.flatMap((cat) => cat.faqs);
+  assert.equal(allFaqs.length, 35, 'faqData.json must have 35 questions across 6 categories');
+
+  // Verify each question when rendered with accordions expanded matches the canonical answer text
+  for (const faq of allFaqs) {
+    const paragraphs = faq.a.join(' ');
+    const linksText =
+      faq.links && faq.links.length > 0
+        ? ' ' + faq.links.map((l) => `${l.prefix || ''}${l.text}${l.suffix || ''}`).join(' ')
+        : '';
+    const expandedAccordionText = normalizeWhitespace(paragraphs + linksText);
+    assert.ok(expandedAccordionText.length > 20, `Answer text too short for ${faq.q}`);
   }
 
-  // Verify static prerender script includes FAQPage schema aligned with visible hub questions
-  assert.ok(prerender.includes('faqs: generalFaqHubQuestions'));
-  assert.ok(prerender.includes("path: '/faq'"));
-
-  assert.ok(pricingPage.includes('@type: \"SoftwareApplication\"') || pricingPage.includes("'@type': 'SoftwareApplication'"));
+  assert.ok(pricingPage.includes('@type: "SoftwareApplication"') || pricingPage.includes("'@type': 'SoftwareApplication'"));
   assert.ok(pricingPage.includes('offers'));
 });
 

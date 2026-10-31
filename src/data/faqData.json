@@ -1,0 +1,463 @@
+[
+  {
+    "id": "about-medally-and-the-workflow",
+    "title": "About MedAlly and the Workflow",
+    "description": "Foundational concepts, platform scope, and how MedAlly fits the clinical day.",
+    "icon": "Layers",
+    "faqs": [
+      {
+        "id": "what-is-medally",
+        "q": "What is MedAlly?",
+        "a": [
+          "MedAlly is a clinical AI platform for physicians. It starts with the patient encounter and can prepare SOAP-style documentation, organize clinical information for review, prepare ICD-10/CPT and billing information, support treatment and follow-up work, and connect physician-approved work to the next practice workflow step."
+        ],
+        "links": [
+          {
+            "prefix": "See ",
+            "text": "MedAlly Features",
+            "href": "/features",
+            "suffix": " for the broader capability set."
+          }
+        ]
+      },
+      {
+        "id": "how-does-medally-work",
+        "q": "How does MedAlly work?",
+        "a": [
+          "MedAlly listens during the patient encounter and uses information from the visit to prepare reviewable work. The physician can then review and edit the documentation and related information before approved work moves to the next workflow step."
+        ],
+        "links": [
+          {
+            "prefix": "See the full sequence on ",
+            "text": "How MedAlly Works",
+            "href": "/how-it-works",
+            "suffix": "."
+          }
+        ]
+      },
+      {
+        "id": "is-medally-only-scribe",
+        "q": "Is MedAlly only an AI medical scribe?",
+        "a": [
+          "No. The AI medical scribe is one part of MedAlly. The broader workflow can also include structured clinical documentation, decision-support and differential-review information, lab-related information, treatment and follow-up support, ICD-10/CPT coding, billing information, and workflow handoff after physician review."
+        ],
+        "links": [
+          {
+            "prefix": "Explore ",
+            "text": "AI Clinical Decision Support",
+            "href": "/ai-clinical-decision-support",
+            "suffix": " to see how differential and planning context are organized."
+          }
+        ]
+      },
+      {
+        "id": "who-is-medally-designed-for",
+        "q": "Who is MedAlly designed for?",
+        "a": [
+          "MedAlly is designed for physicians and clinical teams evaluating AI-supported documentation and broader encounter workflows. Individual clinicians can start with Forever Free, while Enterprise is available for clinical teams and custom systems."
+        ]
+      },
+      {
+        "id": "can-i-try-medally-before-subscribing",
+        "q": "Can I try MedAlly before subscribing?",
+        "a": [
+          "Yes. Forever Free includes 10 clinical encounters every month."
+        ],
+        "links": [
+          {
+            "text": "Start MedAlly Free",
+            "href": "https://app.medally.ai/",
+            "isExternal": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ai-medical-scribe-and-clinical-documentation",
+    "title": "AI Medical Scribe and Clinical Documentation",
+    "description": "Encounter listening, structured SOAP documentation drafts, and physician validation.",
+    "icon": "FileText",
+    "faqs": [
+      {
+        "id": "does-medally-include-scribe",
+        "q": "Does MedAlly include an AI medical scribe?",
+        "a": [
+          "Yes. MedAlly includes an AI medical scribe workflow that listens during the patient encounter and helps prepare clinical documentation for physician review."
+        ],
+        "links": [
+          {
+            "prefix": "See ",
+            "text": "MedAlly AI Medical Scribe",
+            "href": "/ai-medical-scribe",
+            "suffix": " for the scribe-specific experience."
+          }
+        ]
+      },
+      {
+        "id": "what-does-medally-do-during-encounter",
+        "q": "What does MedAlly do during a patient encounter?",
+        "a": [
+          "MedAlly listens during the patient-physician encounter and uses information from the visit to prepare the work that follows, including structured documentation and other reviewable outputs."
+        ]
+      },
+      {
+        "id": "does-medally-create-soap-notes",
+        "q": "Does MedAlly create SOAP-style notes?",
+        "a": [
+          "Yes. MedAlly prepares SOAP-style clinical documentation for physician review and editing."
+        ],
+        "links": [
+          {
+            "prefix": "See ",
+            "text": "AI Clinical Documentation",
+            "href": "/clinical-documentation-ai",
+            "suffix": " for the documentation workflow."
+          }
+        ]
+      },
+      {
+        "id": "can-physicians-edit-notes",
+        "q": "Can physicians edit the notes MedAlly prepares?",
+        "a": [
+          "Yes. Physicians can review and edit MedAlly-prepared documentation before it is used as part of the final clinical record."
+        ]
+      },
+      {
+        "id": "is-note-automatically-final-record",
+        "q": "Is the AI-generated note automatically the final clinical record?",
+        "a": [
+          "No. MedAlly prepares documentation for physician review. The physician remains responsible for reviewing the information and the final clinical record."
+        ]
+      },
+      {
+        "id": "difference-between-scribe-and-documentation",
+        "q": "What is the difference between MedAlly's AI medical scribe and clinical documentation workflow?",
+        "a": [
+          "The AI medical scribe focuses on listening during the encounter and helping create the initial draft. The clinical documentation workflow focuses on the structured note, review, editing, and related documentation work that follows."
+        ],
+        "links": [
+          {
+            "prefix": "See ",
+            "text": "AI Medical Scribe",
+            "href": "/ai-medical-scribe",
+            "suffix": " and "
+          },
+          {
+            "text": "AI Clinical Documentation",
+            "href": "/clinical-documentation-ai",
+            "suffix": " for the deeper workflows."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clinical-support-coding-and-follow-up",
+    "title": "Clinical Support, Coding, and Follow-Up",
+    "description": "Decision support, laboratory integration, care plans, ICD-10/CPT coding, and billing.",
+    "icon": "Activity",
+    "faqs": [
+      {
+        "id": "decision-support-or-differential",
+        "q": "Does MedAlly provide decision-support or differential-review information?",
+        "a": [
+          "Yes. MedAlly can prepare decision-support and differential-review information for physician review.",
+          "This information supports clinical judgment; it does not replace the physician's clinical decision-making."
+        ]
+      },
+      {
+        "id": "lab-related-information",
+        "q": "Does MedAlly work with lab-related information?",
+        "a": [
+          "Yes. MedAlly brings lab-related information into the encounter review workflow so the physician can consider it alongside the other information connected to the visit."
+        ]
+      },
+      {
+        "id": "treatment-planning",
+        "q": "Does MedAlly support treatment planning?",
+        "a": [
+          "Yes. MedAlly provides treatment-planning information for physician review. The physician remains responsible for deciding the appropriate treatment and clinical action."
+        ]
+      },
+      {
+        "id": "follow-up-work",
+        "q": "Does MedAlly support follow-up work?",
+        "a": [
+          "Yes. MedAlly supports follow-up information and workflow connected to the patient encounter."
+        ]
+      },
+      {
+        "id": "icd10-and-cpt-coding",
+        "q": "Does MedAlly provide ICD-10 and CPT coding information?",
+        "a": [
+          "Yes. MedAlly prepares ICD-10/CPT coding information around the encounter for physician review and validation."
+        ]
+      },
+      {
+        "id": "billing-support",
+        "q": "Does MedAlly support billing work?",
+        "a": [
+          "Yes. MedAlly prepares billing-related information around the encounter in addition to ICD-10/CPT coding information.",
+          "Physicians should review and validate billing information before use."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "physician-review-and-workflow-handoff",
+    "title": "Physician Review and Workflow Handoff",
+    "description": "Physician oversight, reviewable components, and deployment-qualified EHR handoffs.",
+    "icon": "CheckCircle2",
+    "faqs": [
+      {
+        "id": "clinical-decisions",
+        "q": "Does MedAlly make clinical decisions for the physician?",
+        "a": [
+          "No. MedAlly prepares and organizes information for review. Clinical judgment and final clinical decisions remain with the physician."
+        ]
+      },
+      {
+        "id": "what-physician-reviews",
+        "q": "What does the physician review in MedAlly?",
+        "a": [
+          "Depending on the workflow, physician review can include the SOAP-style note, decision-support or differential information, lab-related information, treatment and follow-up information, and ICD-10/CPT or billing information."
+        ]
+      },
+      {
+        "id": "after-review-and-approval",
+        "q": "What happens after the physician reviews and approves the work?",
+        "a": [
+          "After physician review and approval, MedAlly can support moving approved work into the next practice or EHR workflow step.",
+          "The exact handoff method varies by deployment, so the specific transfer method should be confirmed for the workflow being evaluated."
+        ],
+        "links": [
+          {
+            "prefix": "For the broader sequence, see ",
+            "text": "How MedAlly Works",
+            "href": "/how-it-works",
+            "suffix": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plans-and-pricing",
+    "title": "Plans and Pricing",
+    "description": "Tier allowances, encounter limits, renewal terms, and cancellation policies.",
+    "icon": "CreditCard",
+    "faqs": [
+      {
+        "id": "plans-available",
+        "q": "What MedAlly plans are available?",
+        "a": [
+          "MedAlly offers Forever Free, Professional, Ultimate, and Enterprise."
+        ]
+      },
+      {
+        "id": "how-much-does-medally-cost",
+        "q": "How much does MedAlly cost?",
+        "a": [
+          "Current pricing is: Forever Free — $0 USD; Professional — $49 USD/mo per clinician; Ultimate — $99 USD/mo per clinician; Enterprise — Custom."
+        ],
+        "links": [
+          {
+            "prefix": "See ",
+            "text": "MedAlly Pricing",
+            "href": "/pricing",
+            "suffix": " for the current plan comparison."
+          }
+        ]
+      },
+      {
+        "id": "what-counts-as-encounter",
+        "q": "What counts as one MedAlly encounter?",
+        "a": [
+          "One MedAlly session counts as one encounter."
+        ]
+      },
+      {
+        "id": "encounters-in-forever-free",
+        "q": "How many encounters are included with Forever Free?",
+        "a": [
+          "Forever Free includes 10 clinical encounters per month."
+        ]
+      },
+      {
+        "id": "do-encounters-renew",
+        "q": "Do the 10 free encounters renew every month?",
+        "a": [
+          "Yes. You receive 10 free encounters every month."
+        ]
+      },
+      {
+        "id": "after-using-10-free-encounters",
+        "q": "What happens after I use all 10 free encounters?",
+        "a": [
+          "After all 10 free encounters for the current month are used, you need a Professional, Ultimate, or Enterprise subscription to start additional MedAlly encounters before the next monthly renewal.",
+          "If you stay on Forever Free, your allowance renews to 10 free encounters at the next monthly reset."
+        ]
+      },
+      {
+        "id": "professional-unlimited-encounters",
+        "q": "Does Professional include unlimited encounters?",
+        "a": [
+          "Yes. The Professional plan includes unlimited encounters."
+        ]
+      },
+      {
+        "id": "difference-pro-ultimate",
+        "q": "What is the difference between Professional and Ultimate?",
+        "a": [
+          "Professional is $49 USD/mo per clinician and includes unlimited encounters, Advanced multilingual scribe, Medical coding maps (ICD-10), and Basic HIPAA storage.",
+          "Ultimate is $99 USD/mo per clinician and includes all Professional features, plus Predictive clinical support, 200+ guideline scans, Treatment plan assistance, and Priority AI latency."
+        ],
+        "links": [
+          {
+            "prefix": "See the current side-by-side comparison on ",
+            "text": "Pricing",
+            "href": "/pricing",
+            "suffix": "."
+          }
+        ]
+      },
+      {
+        "id": "who-is-enterprise-for",
+        "q": "Who is Enterprise for?",
+        "a": [
+          "Enterprise is for clinical teams and custom systems that need a tailored MedAlly deployment."
+        ],
+        "links": [
+          {
+            "prefix": "See ",
+            "text": "Pricing",
+            "href": "/pricing",
+            "suffix": " or "
+          },
+          {
+            "text": "Contact MedAlly",
+            "href": "/contact",
+            "suffix": " to discuss an Enterprise deployment."
+          }
+        ]
+      },
+      {
+        "id": "can-i-cancel-pro-ultimate",
+        "q": "Can I cancel Professional or Ultimate?",
+        "a": [
+          "Yes. Professional and Ultimate use flexible monthly agreements and can be canceled anytime.",
+          "For the exact cancellation effective date or billing treatment, follow the current checkout terms. Enterprise uses custom commercial terms."
+        ],
+        "links": [
+          {
+            "prefix": "For Enterprise contract details, ",
+            "text": "Contact MedAlly",
+            "href": "/contact",
+            "suffix": "."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "practice-and-enterprise-adoption",
+    "title": "Practice and Enterprise Adoption",
+    "description": "Evaluation roadmaps, multi-clinician rollouts, EHR capabilities, and ROI modeling.",
+    "icon": "Building2",
+    "faqs": [
+      {
+        "id": "where-to-start-evaluating-myself",
+        "q": "Where should I start if I am evaluating MedAlly for myself?",
+        "a": [
+          "Start with Forever Free if you want to experience MedAlly directly in your clinical workflow. It includes 10 encounters every month."
+        ],
+        "links": [
+          {
+            "prefix": "Begin with ",
+            "text": "MedAlly Free",
+            "href": "https://app.medally.ai/",
+            "suffix": ".",
+            "isExternal": true
+          }
+        ]
+      },
+      {
+        "id": "where-to-start-evaluating-practice",
+        "q": "Where should a practice start if it is evaluating MedAlly for multiple clinicians?",
+        "a": [
+          "A practice evaluating MedAlly for multiple clinicians should assess encounter volume, specialty documentation needs, and workflow handoff requirements."
+        ],
+        "links": [
+          {
+            "prefix": "Review ",
+            "text": "MedAlly Features",
+            "href": "/features",
+            "suffix": " and "
+          },
+          {
+            "text": "How MedAlly Works",
+            "href": "/how-it-works",
+            "suffix": ", use "
+          },
+          {
+            "text": "Pricing",
+            "href": "/pricing",
+            "suffix": " to compare plans, or "
+          },
+          {
+            "text": "Contact MedAlly",
+            "href": "/contact",
+            "suffix": " for custom deployments."
+          }
+        ]
+      },
+      {
+        "id": "ehr-connected-workflow",
+        "q": "Can MedAlly support an EHR-connected workflow?",
+        "a": [
+          "MedAlly supports practice and EHR workflow handoff after physician review and approval. The exact integration and handoff behavior can vary by deployment.",
+          "Enterprise currently includes custom EPIC and Cerner integration offerings. Discuss the required workflow with MedAlly before assuming a specific integration behavior."
+        ],
+        "links": [
+          {
+            "prefix": "For broader guidance on evaluating workflow platforms, integration, and review responsibilities, see ",
+            "text": "Clinical Workflow Software",
+            "href": "/clinical-workflow-software",
+            "suffix": "."
+          }
+        ]
+      },
+      {
+        "id": "security-and-privacy",
+        "q": "Where can I find current security and privacy information?",
+        "a": [
+          "For security, privacy, and compliance information applicable to your organization or deployment, our team provides detailed documentation upon request."
+        ],
+        "links": [
+          {
+            "prefix": "To request compliance details, ",
+            "text": "Contact MedAlly",
+            "href": "/contact",
+            "suffix": "."
+          }
+        ]
+      },
+      {
+        "id": "estimate-roi-value",
+        "q": "How can I estimate the potential value of MedAlly for my practice?",
+        "a": [
+          "You can model potential workflow impact, hours saved, and documentation return on investment using your own practice assumptions."
+        ],
+        "links": [
+          {
+            "prefix": "Model workflow savings on the ",
+            "text": "MedAlly ROI Calculator",
+            "href": "/roi-calculator",
+            "suffix": "."
+          }
+        ]
+      }
+    ]
+  }
+]
